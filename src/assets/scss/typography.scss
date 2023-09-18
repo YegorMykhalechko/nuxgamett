@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap");
+
+.title {
+  font-family: var(--font);
+  color: var(--textTitleColor);
+  font-weight: 400;
+  line-height: 21px;
+  font-style: normal;
+  font-size: 17px;
+  margin: 0;
+}
+
+.text {
+  font-family: var(--font);
+  color: var(--textTitleColor);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  margin: 0;
+}
