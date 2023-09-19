@@ -1,18 +1,27 @@
 <template>
-  <LoginCard />
+  <Card :title="'description'" :description="'description'">
+    <LoginForm @login="onLogin" :loginError="loginError" />
+  </Card>
 </template>
 <script>
-import LoginCard from "../components/LoginCard.vue";
+import { mapGetters } from "vuex";
+import Card from "../components/Card.vue";
+import LoginForm from "../components/LoginForm.vue";
 export default {
   name: "Home",
   components: {
-    LoginCard,
+    Card,
+    LoginForm,
   },
-  data() {
-    return {
-      username: "",
-      phone: "",
-    };
+  computed: {
+    ...mapGetters({
+      loginError: "user/loginError",
+    }),
+  },
+  methods: {
+    onLogin(data) {
+      this.$store.dispatch("user/findUser", data);
+    },
   },
 };
 </script>

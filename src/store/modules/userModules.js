@@ -1,4 +1,4 @@
-import { Users } from "../../api/index";
+import { Users, User } from "../../api/index";
 import router from "../../router";
 
 const userModule = {
@@ -8,7 +8,7 @@ const userModule = {
     error: null,
   },
   actions: {
-    async getUser({ commit }, data) {
+    async findUser({ commit }, data) {
       try {
         const users = await Users();
         let currentUser = null;
@@ -23,6 +23,14 @@ const userModule = {
           localStorage.setItem("user", JSON.stringify(currentUser.id));
           router.push("/profile");
         }
+      } catch (err) {
+        commit("SET_ERROR", err.message);
+      }
+    },
+    async getUser({ commit }, id) {
+      try {
+        const user = await User(id);
+        commit("SET_USER", user.data);
       } catch (err) {
         commit("SET_ERROR", err.message);
       }

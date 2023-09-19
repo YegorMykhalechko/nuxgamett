@@ -15,10 +15,3 @@ export default {
   components: { Header, Footer },
 };
 </script>
-
-<style lang="scss">
-.wrapper {
-  width: 1300px;
-  margin: 0 auto;
-}
-</style>

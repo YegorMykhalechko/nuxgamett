@@ -12,7 +12,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 .button {
   background-color: var(--btnPrimaryColor);
   color: var(--white);
@@ -27,6 +27,9 @@ export default {
   &:disabled {
     background-color: var(--bgTitleCardColor);
     cursor: auto;
+  }
+  &--danger {
+    background-color: var(--danger);
   }
 }
 </style>

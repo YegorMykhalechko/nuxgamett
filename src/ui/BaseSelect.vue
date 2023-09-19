@@ -1,28 +1,33 @@
 <template>
-  <div>
-    <input
-      v-bind="$attrs"
-      class="input"
-      :value="value"
-      @input="$emit('update', $event.target.value)"
-    />
-    <span class="input__error" v-if="errorMsg">{{ errorMsg }}</span>
-  </div>
+  <select class="select" @change="changeOption">
+    <option disabled value="">Choose</option>
+    <option v-for="option in options" :key="option.value" :value="option.value">
+      {{ option.name }}
+    </option>
+  </select>
 </template>
+
 <script>
 export default {
   props: {
-    value: String | Number,
-    errorMsg: String,
+    modelValue: {
+      type: String,
+    },
+    options: {
+      type: Array,
+      default: () => [],
+    },
   },
-  model: {
-    prop: "value",
-    event: "update",
+  methods: {
+    changeOption(event) {
+      this.$emit("update:modelValue", event.target.value);
+    },
   },
 };
 </script>
+
 <style scoped lang="scss">
-.input {
+.select {
   box-sizing: border-box;
   width: 100%;
   display: block;

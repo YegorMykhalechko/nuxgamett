@@ -17,5 +17,53 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 160px);
+  min-height: calc(100vh - 160px);
+  padding: 0 20px;
+}
+
+.wrapper {
+  width: 95%;
+  padding: 30px 0;
+}
+
+.form {
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__actions {
+    margin-top: 25px;
+  }
+  &__error {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 15%);
+    color: var(--danger);
+  }
+}
+
+.card {
+  margin: auto;
+  width: 100%;
+  max-width: 447px;
+  background: var(--bgCardColor);
+  border-radius: 5px;
+  min-height: 299px;
+  overflow: auto;
+
+  &__body {
+    padding: 0 25px 30px;
+    &-description {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__header {
+    text-align: center;
+    padding: 15px 0;
+    background: var(--bgTitleCardColor);
+  }
 }

@@ -51,21 +51,3 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
-.form {
-  &__inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  &__actions {
-    margin-top: 25px;
-  }
-  &__error {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 15%);
-    color: var(--danger);
-  }
-}
-</style>
