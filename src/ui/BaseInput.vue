@@ -1,14 +1,18 @@
 <template>
-  <input
-    class="input"
-    :value="value"
-    @input="$emit('update', $event.target.value)"
-  />
+  <div>
+    <input
+      class="input"
+      :value="value"
+      @input="$emit('update', $event.target.value)"
+    />
+    <span class="input__error" v-if="errorMsg">{{ errorMsg }}</span>
+  </div>
 </template>
 <script>
 export default {
   props: {
     value: String | Number,
+    errorMsg: String,
   },
   model: {
     prop: "value",
@@ -30,6 +34,11 @@ export default {
   }
   &:focus-visible {
     outline: 1px solid var(--bgPrimaryColor);
+  }
+  &__error {
+    position: absolute;
+    color: var(--danger);
+    font-size: 12px;
   }
 }
 </style>

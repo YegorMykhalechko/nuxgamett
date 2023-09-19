@@ -16,5 +16,9 @@
   border: none;
   font-size: 17px;
   font-weight: 500;
+  &:disabled {
+    background-color: var(--bgTitleCardColor);
+    cursor: auto;
+  }
 }
 </style>
