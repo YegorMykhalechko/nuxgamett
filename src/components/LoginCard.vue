@@ -7,18 +7,15 @@
       <div class="card__body-description">
         <p class="text">description</p>
       </div>
-      <LoginForm @login="onLogin" />
+      <LoginForm @login="onLogin" :loginError="loginError" />
     </div>
   </div>
 </template>
 <script>
-import BaseInput from "../ui/BaseInput.vue";
-import BaseButton from "../ui/BaseButton.vue";
 import LoginForm from "./LoginForm.vue";
+import { mapGetters } from "vuex";
 export default {
   components: {
-    BaseInput,
-    BaseButton,
     LoginForm,
   },
   data() {
@@ -27,9 +24,14 @@ export default {
       phone: "",
     };
   },
+  computed: {
+    ...mapGetters({
+      loginError: "user/loginError",
+    }),
+  },
   methods: {
     onLogin(data) {
-      console.log(data);
+      this.$store.dispatch("user/getUser", data);
     },
   },
 };

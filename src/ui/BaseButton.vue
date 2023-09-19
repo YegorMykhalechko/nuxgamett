@@ -1,9 +1,17 @@
 <template>
-  <button class="button">
+  <button @click="onClick" class="button">
     <slot />
   </button>
 </template>
-<script></script>
+<script>
+export default {
+  methods: {
+    onClick() {
+      this.$emit("click");
+    },
+  },
+};
+</script>
 <style lang="scss">
 .button {
   background-color: var(--btnPrimaryColor);

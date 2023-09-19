@@ -17,6 +17,7 @@
     <div class="form__actions">
       <BaseButton type="submit" :disabled="isDisabledButton">Login</BaseButton>
     </div>
+    <div v-if="loginError" class="form__error">{{ loginError }}</div>
   </form>
 </template>
 <script>
@@ -27,6 +28,9 @@ export default {
   components: {
     BaseInput,
     BaseButton,
+  },
+  props: {
+    loginError: String,
   },
   mixins: [formValidation],
   data() {
@@ -56,6 +60,12 @@ export default {
   }
   &__actions {
     margin-top: 25px;
+  }
+  &__error {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 15%);
+    color: var(--danger);
   }
 }
 </style>

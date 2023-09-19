@@ -1,8 +1,8 @@
 <template>
   <header>
     <div class="nav">
-      <RouterLink to="/">Home</RouterLink>|<RouterLink to="/about"
-        >About</RouterLink
+      <RouterLink to="/">Home</RouterLink>|<RouterLink to="/profile"
+        >Profile</RouterLink
       >
     </div>
   </header>
@@ -16,8 +16,9 @@ header {
     align-items: center;
     justify-content: center;
     a {
+      text-decoration: none;
       font-weight: 500;
-      color: var(--textColor);
+      color: var(--white);
       margin: 0 5px;
     }
 
